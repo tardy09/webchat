@@ -1,0 +1,139 @@
+<html class="cye-disabled cye-nm">
+	<head>
+	  <meta charset="utf-8">
+	  <title>IMZZ聊天即时通讯系统注册账号</title>
+	  <meta name="renderer" content="webkit">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	  <link rel="stylesheet" href="../../layui/css/layui.css" media="all">
+	  
+	  <style id="nightModeStyle">
+		html.cye-enabled.cye-nm:not(*:-webkit-full-screen) body,html.cye-enabled.cye-nm:not(*:-webkit-full-screen) #cye-workaround-body {-webkit-filter:contrast(91%) brightness(84%) invert(1);}
+	  </style>
+	  
+	  <style id="cyebody">
+			html.cye-enabled.cye-lm body{background-color:#cde9d0 !important;border-color:rgb(51, 58, 52) !important;background-image:none !important;color:#000000  !important}
+	  </style>
+	  
+	  <style id="cyediv">
+			html.cye-enabled.cye-lm div{background-color:#cde9d0 !important;border-color:rgb(51, 58, 52) !important;background-image:none !important;color:#000000  !important}
+	  </style>
+	  
+	  <style id="cyetable">
+			html.cye-enabled.cye-lm th{background-color:#cde9d0 !important;border-color:rgb(51, 58, 52) !important;background-image:none !important;color:#000000  !important}html.cye-enabled.cye-lm td{background-color:#cde9d0 !important;border-color:rgb(51, 58, 52) !important;background-image:none !important;color:#000000  !important}
+	  </style>
+	  
+	  <style id="cyetextInput">
+			html.cye-enabled.cye-lm input[type=text]{background-color:#cde9d0 !important;border-color:rgb(51, 58, 52) !important;background-image:none !important;color:#000000  !important}html.cye-enabled.cye-lm textarea{background-color:#cde9d0 !important;border-color:rgb(51, 58, 52) !important;background-image:none !important;color:#000000  !important}
+	  </style>
+	  
+	  <style id="cyeselect">
+			html.cye-enabled.cye-lm select{background-color:#cde9d0 !important;border-color:rgb(51, 58, 52) !important;background-image:none !important;color:#000000  !important}
+	  </style>
+	  
+	  <style id="cyeul">
+			html.cye-enabled.cye-lm ul{background-color:#cde9d0 !important;border-color:rgb(51, 58, 52) !important;background-image:none !important;color:#000000  !important}
+	  </style>
+	  
+	  <style id="cyeChangeByClick">
+			html.cye-enabled.cye-lm .cye-lm-tag,html.cye-enabled.cye-lm.cye-lm-tag{background-color:#cde9d0 !important;border-color:rgb(51, 58, 52) !important;background-image:none !important;color:#000000  !important}
+	  </style>
+	  
+	  <link id="layuicss-layer" rel="stylesheet" href="https://res.layui.com/layui/rc/css/modules/layer/default/layer.css?v=3.1.1" media="all">
+	  
+	  <link id="layuicss-layuiAdmin" rel="stylesheet" href="../../layui/css/layuiadmin.css?v=1.2.1 pro-1" media="all">
+	  
+	</head>
+	
+	<body style="" layadmin-themealias="default" class="layui-layout-body">
+	  <div id="LAY_app" class="layadmin-tabspage-none">
+		<script type="text/html" template="">
+			<link rel="stylesheet" href="../../layui/css/login.css" media="all">
+		</script> 
+			<link rel="stylesheet" href="../../layui/css/login.css" media="all">
+		<div class="layadmin-user-login layadmin-user-display-show" id="LAY-user-login" style="display: none;">
+		  <div class="layadmin-user-login-main">
+			<div class="layadmin-user-login-box layadmin-user-login-header">
+			  <h2>IMZZ即时通讯注册</h2>
+			  <p>在这里，赶紧注册你自己的聊天账号吧！皮~</p>
+			</div>
+			<div class="layadmin-user-login-box layadmin-user-login-body layui-form">
+			  <div class="layui-form-item">
+				<label class="layadmin-user-login-icon layui-icon layui-icon-cellphone" for="LAY-user-login-cellphone"></label>
+				<input type="text" name="usernumber" id="LAY-user-login-cellphone" lay-verify="phone" placeholder="手机" class="layui-input">
+			  </div>
+			  <div class="layui-form-item">
+				<label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
+				<input type="password" name="userpassword" id="LAY-user-login-password" lay-verify="pass" placeholder="密码" class="layui-input">
+			  </div>
+			  <div class="layui-form-item">
+				<label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-repass"></label>
+				<input type="password" name="userpassword" id="LAY-user-login-repass" lay-verify="required" placeholder="确认密码" class="layui-input">
+			  </div>
+			  <div class="layui-form-item">
+				<label class="layadmin-user-login-icon layui-icon layui-icon-username" for="LAY-user-login-nickname"></label>
+				<input type="text" name="username" id="LAY-user-login-nickname" lay-verify="nickname" placeholder="昵称" class="layui-input">
+			  </div>
+			  <div class="layui-form-item">
+				<input type="checkbox" name="agreement" lay-skin="primary" title="同意用户协议" checked=""><div class="layui-unselect layui-form-checkbox layui-form-checked" lay-skin="primary">
+				<span>同意用户协议</span><i class="layui-icon layui-icon-ok"></i>
+			  </div>
+			</div>
+			  <div class="layui-form-item">
+				<button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="LAY-user-reg-submit">注 册</button>
+			  </div>
+			  <div class="layui-trans layui-form-item layadmin-user-login-other">
+				<label>社交账号注册</label>
+				<a href="javascript:;"><i class="layui-icon layui-icon-login-qq"></i></a>
+				<a href="javascript:;"><i class="layui-icon layui-icon-login-wechat"></i></a>
+				<a href="javascript:;"><i class="layui-icon layui-icon-login-weibo"></i></a>
+				<a href="login.html" class="layadmin-user-jump-change layadmin-link layui-hide-xs">用已有帐号登入</a>
+				<a href="login.html" class="layadmin-user-jump-change layadmin-link layui-hide-sm layui-show-xs-inline-block">登入</a>
+			  </div>
+			</div>
+		  </div>
+		<div class="layui-trans layadmin-user-login-footer">
+			<p>© 2018 <a href="http://www.layui.com/" target="_blank">www.zzmmax.com</a></p>
+		</div>
+		</div>
+		  <script src="../../layui/layui.js"></script>
+		  <script src="../../layui/ajax.js"></script>
+		  <script>
+			layui.use(['form'], function(){
+			  var $ = layui.$,form = layui.form;
+
+			  //提交
+			  form.on('submit(LAY-user-reg-submit)', function(obj){
+				var field = obj.field;
+
+				//确认密码
+				if(field.password !== field.repass){
+				  return layer.msg('两次密码输入不一致！！');
+				}
+
+				if(field.username == null || field.username.length <= 0){
+					return layer.msg('请输入昵称！！');
+				}
+
+				//是否同意用户协议
+				if(!field.agreement){
+				  return layer.msg('你必须同意用户协议才能注册');
+				}
+
+				dataAjax($,"mine/insertMine",field,function(result){
+					if(result.code == 0){
+                        layer.msg(result.data);
+                        setTimeout( function(){
+                            window.location.href = "login.html";
+                        }, 2 * 1000 );
+					}else{
+                        layer.msg(result.msg);
+                    }
+				});
+				return false;
+			  });
+			});
+		  </script>
+		</div>
+	</body>
+</html>

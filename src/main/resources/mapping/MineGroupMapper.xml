@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imzz.webchat.mapper.MineGroupMapper">
+
+    <!--我的分组-->
+    <resultMap id="mineGroupResultMap" type="MineGroup">
+        <id column="id" property="id"/>
+        <result column="mine_group_name" property="groupname"/>
+        <result column="mine_id" property="mineId"/>
+        <collection property="list"  column="id" select="findMIne"></collection>
+    </resultMap>
+
+    <!--分组下的好友-->
+    <resultMap id="mineResultMap" type="Mine">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="status" property="status"/>
+        <result column="sign" property="sign"/>
+        <result column="avatar" property="avatar"/>
+    </resultMap>
+
+    <!--分组下的好友字段-->
+    <sql id="mineSqlColum">
+        id,username,status,sign,avatar
+    </sql>
+
+    <sql id="mineGroupSqlColum">
+       id,mine_group_name
+    </sql>
+
+    <!--分组下的好友-->
+    <select id="findMIne" parameterType="java.lang.String" resultMap="mineResultMap">
+        select  <include refid="mineSqlColum"/> from mine where mine.id in (select  mine_id from mine_friend where mine_group_id=#{id,jdbcType=VARCHAR})
+    </select>
+
+    <select id="mineGroups" parameterType="java.lang.String" resultMap="mineGroupResultMap">
+        select <include refid="mineGroupSqlColum"/> from mine_group  where mine_group.mine_id = #{mineId,jdbcType=VARCHAR}
+    </select>
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imzz.webchat.mapper.MineGroupingMapper">
+
+    <resultMap id="mineGroupingResultMap" type="MineGrouping">
+        <id column="id" property="id"/>
+        <result column="groupname" property="groupname"/>
+        <result column="avatar" property="avatar"/>
+    </resultMap>
+
+    <sql id="mineGroupingSqlColum">
+      mine_grouping.id,
+      mine_grouping.groupname,
+      mine_grouping.avatar
+    </sql>
+
+    <select id="getMineGrouping" parameterType="java.lang.String" resultMap="mineGroupingResultMap">
+
+        select <include refid="mineGroupingSqlColum"/> from mine_grouping,mine_grouping_friend
+
+        where mine_grouping.id = mine_grouping_friend.grouping_id
+
+        and mine_grouping_friend.mine_id=#{mineId,jdbcType=VARCHAR}
+
+    </select>
+
+    <select id="getMineId" parameterType="java.lang.String" resultType="java.lang.String">
+        select mine_id from mine_grouping_friend where grouping_id=#{grounpingId,jdbcType=VARCHAR}
+    </select>
+
+</mapper>

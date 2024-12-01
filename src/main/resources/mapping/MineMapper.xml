@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imzz.webchat.mapper.MineMapper">
+
+    <!--分组下的好友-->
+    <resultMap id="mineResultMap" type="Mine">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="status" property="status"/>
+        <result column="sign" property="sign"/>
+        <result column="avatar" property="avatar"/>
+    </resultMap>
+
+    <!--群组下的好友字段-->
+    <sql id="mineSqlColum">
+        id,username,status,sign,avatar
+    </sql>
+
+    <select id="mines" parameterType="java.lang.String" resultMap="mineResultMap">
+        select
+        <include refid="mineSqlColum"/>
+        FROM
+        mine
+        WHERE
+        mine.id  in
+        (
+                SELECT  mine_grouping_friend.mine_id  from  mine_grouping_friend  WHERE mine_grouping_friend.grouping_id = #{groupingId,jdbcType=VARCHAR}
+        )
+    </select>
+
+    <select id="mineList" parameterType="java.lang.String" resultMap="mineResultMap">
+        select <include refid="mineSqlColum"/>
+        FROM
+        mine
+        WHERE
+        id != #{id,jdbcType=VARCHAR}
+        <if test="pageIndex != null || pageSize != null">
+            limit ${pageIndex},${pageSize}
+        </if>
+    </select>
+    
+</mapper>

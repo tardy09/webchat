@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.imzz.webchat.mapper.SystemroleMapper">
+
+    <resultMap id="roleBaseResultMap" type="com.imzz.webchat.entity.Systemrole">
+        <id column="systemrole_id" property="systemroleId"/>
+        <result column="systemrole_name" property="systemroleName"/>
+        <result column="systemrole_status" property="systemroleStatus"/>
+        <result column="systemrole_create_date" property="systemroleCreateDate"/>
+        <result column="systemrole_desc" property="systemroleDesc"/>
+    </resultMap>
+
+    <select id="roleList" parameterType="java.lang.String" resultMap="roleBaseResultMap">
+        SELECT systemrole.systemrole_id,systemrole.systemrole_name
+
+        from systemrole,system_mine_role,mine
+
+        WHERE systemrole.systemrole_id=system_mine_role.role_id
+
+        AND system_mine_role.mine_id = mine.id
+
+        AND mine.usernumber=#{userNumber,jdbcType=VARCHAR}
+    </select>
+</mapper>

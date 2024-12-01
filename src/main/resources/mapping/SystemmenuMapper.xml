@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.imzz.webchat.mapper.SystemmenuMapper">
+
+    <resultMap id="menuResultMap" type="com.imzz.webchat.entity.Systemmenu">
+        <id column="systemmenu_id" property="systemmenuId"/>
+        <result column="systemmenu_name" property="systemmenuName"/>
+        <result column="systemmenu_permission" property="systemmenuPermission"/>
+        <result column="systemmenu_address" property="systemmenuAddress"/>
+        <result column="systemmenu_status" property="systemmenuStatus"/>
+        <result column="systemmenu_parent_id" property="systemmenuParentId"/>
+    </resultMap>
+
+
+    <select id="menuList" parameterType="java.lang.String" resultMap="menuResultMap">
+        SELECT systemmenu.systemmenu_address,systemmenu.systemmenu_permission
+
+        from systemrole,system_menu_role,systemmenu
+
+        WHERE systemrole.systemrole_id=system_menu_role.role_id
+
+        AND system_menu_role.menu_id = systemmenu.systemmenu_id
+
+        AND systemrole.systemrole_id=#{systemroleId,jdbcType=VARCHAR}
+    </select>
+</mapper>
